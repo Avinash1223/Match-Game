@@ -267,6 +267,7 @@ class App extends Component {
       this.setState(prevState => ({timer: prevState.timer - 1}))
     } else {
       clearInterval(this.timerId)
+      this.setState({isTrue: true})
     }
   }
 
@@ -297,10 +298,10 @@ class App extends Component {
   playAgain = () => {
     this.setState({
       score: 0,
-      imgUrl: imagesList[0].imageUrl,
+      timer: 60,
       category: 'FRUIT',
       isTrue: false,
-      timer: 60,
+      imgUrl: imagesList[0].imageUrl,
     })
     this.timerId = setInterval(this.countdown, 1000)
   }
@@ -376,8 +377,8 @@ class App extends Component {
             <div className="trophy-container">
               <img
                 src="https://assets.ccbp.in/frontend/react-js/match-game-trophy.png"
-                alt="trophy"
                 className="trophy-img"
+                alt="trophy"
               />
               <p className="title">YOUR SCORE</p>
               <p className="myScore">{score}</p>
@@ -388,8 +389,8 @@ class App extends Component {
               >
                 <img
                   src="https://assets.ccbp.in/frontend/react-js/match-game-play-again-img.png"
-                  alt="reset"
                   className="reset-img"
+                  alt="reset"
                 />
                 PLAY AGAIN
               </button>
